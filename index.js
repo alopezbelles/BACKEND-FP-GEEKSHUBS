@@ -3,11 +3,11 @@ const app = express();
 const db = require('./db/db');
 const { sequelize } = require("sequelize");
 
-const router = require('./router') 
+// const router = require('./router') 
 const cors = require("cors"); // Import cors module
 
 
-const PORT = process.env.PORT || 3610;
+const PORT = process.env.PORT || 3613;
 
 //CONFIGURACIÓN OPCIONES CORS
 var corsOptions = {
@@ -19,7 +19,7 @@ var corsOptions = {
 
 
 app.use(express.json());
-app.use(router);
+// app.use(router);
 app.use(cors(corsOptions)); //Add CORS Middleware
 
 app.get('/', (req, res) => {res.send('Pantalla de inicio');});
