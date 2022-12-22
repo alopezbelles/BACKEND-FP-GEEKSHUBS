@@ -4,18 +4,20 @@ const Sequelize = require('sequelize')
 require ('dotenv').config()
 
 const sequelize = new Sequelize(
-  config.development.database,
-  config.development.username,
-  config.development.password,
+  process.env.DB_DATABASE,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
   {
-      host: config.development.host,
-      port: config.development.port,
-      dialect: config.development.dialect
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: process.env.DB_DIALECT
   }
 )
 
-module.exports = sequelize.authenticate()
-.then((db)=>{
-    console.log('MYSQL connected // Conectado a la base de datos'); 
-    return db;
-});
+// module.exports = sequelize.authenticate()
+// .then((db)=>{
+//     console.log('MYSQL connected // Conectado a la base de datos'); 
+//     return db;
+// });
+
+module.exports = sequelize
