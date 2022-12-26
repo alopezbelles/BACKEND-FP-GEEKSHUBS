@@ -8,7 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      
+      SpotIdSpot: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Spots',
+          key: "id_spot"
+        }
+      },
+      UserIdUser: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: "id_user"
+        }
+      }
     });
   },
   async down(queryInterface, Sequelize) {

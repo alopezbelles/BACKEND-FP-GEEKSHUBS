@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Userspot.belongsTo(models.Spots)
+      Userspot.belongsTo(models.Users)
     }
   }
   Userspot.init({
@@ -18,6 +19,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true
+    },
+    SpotIdSpot: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Spots',
+        key: "id_spot"
+      }
+    },
+    UserIdUser: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: "id_user"
+      }
     }
   }, {
     sequelize,

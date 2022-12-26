@@ -32,7 +32,14 @@ module.exports = {
       date_of_sign_up: {
         type: Sequelize.DATEONLY
       },
-      
+      RoleIdRole: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: 'Roles',
+          key: "id_role"
+        }
+      },
       
     });
   },
