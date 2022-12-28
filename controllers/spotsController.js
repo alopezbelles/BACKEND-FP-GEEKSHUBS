@@ -1,45 +1,52 @@
 const SpotsController = {};
 
-const models = require('../models/index');
+const models = require("../models/index");
 
 //IMPORTAMOS FUNCIONES ORM DE SEQUELIZE
-const { Op } = require("sequelize");  
+const { Op } = require("sequelize");
 
 /////  C R U D    E N D - P O I N T S  F U N C T I O N S //////
 
 //OBTENEMOS LISTADO DE TODOS LOS SPOTS -------------------------------------------------
 
 SpotsController.getAll = async (req, res) => {
-  
-    try {
-      let resp = await models.spots.findAll({
-        
-      });
-      
-      res.send(resp);
-    } catch (err) {
-      res.send(err);
-    }
-  };
-
-
- //OBTENEMOS SPOT POR ID -------------------------------------------------
-
- SpotsController.getbyId = async (req, res) => {
   try {
-    const id = req.params.id;
-    let resp = await models.spots.findAll({
-      
-        where: { id_spot: id },
-      })
-      .then((resp) => {
-        res.send(resp);
-      });
+    let resp = await models.Spots.findAll({});
+
+    res.send(resp);
   } catch (err) {
     res.send(err);
   }
 };
 
+//OBTENEMOS SPOT POR ID -------------------------------------------------
 
+SpotsController.getbyId = async (req, res) => {
+  try {
+    const id = req.params.id;
+    let resp = await models.Spots.findAll({
+      where: { id_spot: id },
+    }).then((resp) => {
+      res.send(resp);
+    });
+  } catch (err) {
+    res.send(err);
+  }
+};
 
-  module.exports = SpotsController;
+//OBTENEMOS SPOTS POR NOMBRE -----------------------------------------------------------
+
+SpotsController.getByName = async (req, res) => {
+  try {
+    let spotname = req.params.name;
+    let resp = await models.Spots.findAll({
+      where: { spotname: spotname },
+    }).then((resp) => {
+      res.send(resp);
+    });
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+module.exports = SpotsController;

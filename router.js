@@ -13,4 +13,4 @@ router.use('/spots', SpotsRoutes);
 
 
 
-module.exports = router
+module.exports = router;

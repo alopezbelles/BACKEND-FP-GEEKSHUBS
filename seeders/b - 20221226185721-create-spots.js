@@ -35,6 +35,34 @@ module.exports = {
           rating: 5,
           imagepath: "",
         },
+        {
+          id_spot: 3,
+          spotname: "Playa de Castellón",
+          city: "Cantabria",
+          adress: "Ribamontán al Mar. Pueblo de Somo. Bahía de santander",
+          type: "arena",
+          conditions:
+            " La Playa de Somo, en Ribamontán al Mar, es una de las playas más famosas de la comunidad de Cantabria. Cuenta con 3 picos principalmente, el barco, con olas de izquierdas principalmente y buenas derechas también en baja, la zona del antiguo camping con picos en ambas direcciones y diversos picos por toda la playa. Un spot idílico para todos los niveles. Somo cuenta con una de las escuelas de surf más reconocidas en Europa, la Escuela Cantabra de Surf, durante todo el año se realizan campeonatos. El viento principal es S-SW. Se accede a través de parking de tierra de fácil aparcamiento.",
+
+          lifeguard: true,
+          length: "2 km",
+          rating: 5,
+          imagepath: "",
+        },
+        {
+          id_spot: 4,
+          spotname: "Prueba",
+          city: "Cantabria",
+          adress: "Ribamontán al Mar. Pueblo de Somo. Bahía de santander",
+          type: "arena",
+          conditions:
+            " La Playa de Somo, en Ribamontán al Mar, es una de las playas más famosas de la comunidad de Cantabria. Cuenta con 3 picos principalmente, el barco, con olas de izquierdas principalmente y buenas derechas también en baja, la zona del antiguo camping con picos en ambas direcciones y diversos picos por toda la playa. Un spot idílico para todos los niveles. Somo cuenta con una de las escuelas de surf más reconocidas en Europa, la Escuela Cantabra de Surf, durante todo el año se realizan campeonatos. El viento principal es S-SW. Se accede a través de parking de tierra de fácil aparcamiento.",
+
+          lifeguard: true,
+          length: "2 km",
+          rating: 5,
+          imagepath: "",
+        },
       ],
       {}
     );

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "xLqhdUjQRtThIt05DjpF",
-    "database": "surf_app_fp_railway",
+    "database": "railway",
     "host": "containers-us-west-44.railway.app",
     "dialect": "mysql",
     "port": 5982
