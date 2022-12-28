@@ -3,8 +3,9 @@ const app = express();
 const db = require('./db/db');
 const { sequelize } = require("./models/index");
 
-// const router = require('./router') 
+const router = require('./router') 
 const cors = require("cors"); // Import cors module
+
 
 
 const PORT = process.env.PORT || 3613;
@@ -19,26 +20,20 @@ var corsOptions = {
 
 
 app.use(express.json());
-// app.use(router);
+app.use(router);
 app.use(cors(corsOptions)); //Add CORS Middleware
 
-app.get('/', (req, res) => {res.send('Pantalla de inicio');});
+// app.get('/', (req, res) => {res.send('Pantalla de inicio');});
 
 
 //Conectamos con la base de datos
 
 
-// db.then(()=>{
-//     app.listen(PORT, ()=> console.log(`Servidor en puerto: ${PORT}`)); 
-   
-// })
-// .catch((err)=> console.log(err.message)); 
-
 app.listen(PORT, () => {
   console.log(`Servidor conectado y levantado en el puerto ${PORT}`);
   // sequelize.sync({ force: true })
   // db.authenticate()
-  sequelize.sync({ force: true })
+  db.authenticate()
     .then(() => {
       console.log("Conectados a la DB");
     })
