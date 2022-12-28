@@ -1,5 +1,4 @@
 const SpotsController = {};
-
 const models = require("../models/index");
 
 //IMPORTAMOS FUNCIONES ORM DE SEQUELIZE
