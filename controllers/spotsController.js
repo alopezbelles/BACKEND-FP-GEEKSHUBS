@@ -49,4 +49,41 @@ SpotsController.getByName = async (req, res) => {
   }
 };
 
+//OBTENEMOS SPOTS TOP RATED-------------------------------------------------------------------------
+
+SpotsController.spotsTopRated = async (req, res) => {
+  try {
+    // const id = req.params.id;
+    let resp = await models.Spots.findAll({
+      
+      where: {rating: {[Op.gt]: 4}},
+      })
+      .then((resp) => {
+        res.send(resp);
+      });
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+//OBTENEMOS SPOTS CON SOCORRISTA-------------------------------------------------------------------------
+
+SpotsController.spotsLifeguard = async (req, res) => {
+  try {
+    let lifeguard = req.params.lifeguard;
+    let resp = await models.Spots.findAll({
+      where: { lifeguard: true },
+    }).then((resp) => {
+      res.send(resp);
+    });
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+
+
+
+
+
 module.exports = SpotsController;
