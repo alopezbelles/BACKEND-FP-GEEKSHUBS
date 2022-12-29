@@ -13,7 +13,10 @@ const { authBearerMiddleware, isValidRole, isValidUser, isValidUserID } = requir
 
 //Ver todos los usuarios (solo admin)
 router.get("/all", authBearerMiddleware, isValidRole("admin"), UsersController.getAllUsers);
+//Ver mi información de perfil (solo cada usuario)
 router.get('/:email', authBearerMiddleware, isValidUser(), UsersController.getData);
+//Actualizar información de perfil (solo cada usuario)
+router.patch('/edit/:email', authBearerMiddleware, isValidUser(), UsersController.upData);
 
 
 module.exports = router;

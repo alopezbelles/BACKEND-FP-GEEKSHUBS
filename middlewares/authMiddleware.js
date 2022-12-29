@@ -42,7 +42,7 @@ const isValidUser = (email) => async (req, res, next) => {
   if (req.auth?.email === email) {
     next();
   } else {
-    res.status(403).json({ message: "You are not authorized 1" });
+    res.status(403).json({ message: "You are not authorized" });
   }
 };
 

@@ -97,9 +97,7 @@ const authLoginController = async (req, res) => {
         address: userFound.address,
         city: userFound.city
       }, secret);
-      // console.log(jwt);
-      // console.log(userFound.email);
-      // console.log(userFound.RoleIdRole.toLowerCase());
+      
       res.status(200).json({
         message: "Login successful",
         jwt: jwt,
