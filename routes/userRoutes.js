@@ -3,7 +3,6 @@ const router = express.Router();
 const jsonwebtoken = require("jsonwebtoken");
 
 
-
 //Importamos modelos de datos
 const UsersController = require("../controllers/usersControllers");
 const { authBearerMiddleware, isValidRole, isValidUser } = require("../middlewares/authMiddleware")

@@ -2,8 +2,6 @@ const UsersController = {};
 const models = require("../models/index");
 const { encryptPasswordService } = require("../Services/AuthServices");
 
-const jsonwebtoken = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 
 /////  C R U D    E N D - P O I N T S  F U N C T I O N S //////
 
@@ -64,14 +62,6 @@ UsersController.upData = async (req, res) => {
 };
 
 // ELIMINAR USUARIO (ADMIN)
-
-// UsersController.deleteUser = async (req, res) => {
-//   let { email } = req.params;
-//   let resp = await models.Users.delete({
-//     where: { email: email },
-//   });
-//   res.send(resp);
-// };
 
 UsersController.deleteUser = async (req, res) => {
   const { email } = req.body;
