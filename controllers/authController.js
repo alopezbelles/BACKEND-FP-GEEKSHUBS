@@ -1,4 +1,7 @@
 const models = require("../models/index");
+const jsonwebtoken = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+
 
 const {
   assertValidPasswordService,
@@ -9,7 +12,6 @@ const {
 } = require("../Services/AuthServices");
 require("dotenv").config();
 
-const jsonwebtoken = require("jsonwebtoken");
 
 
 
@@ -95,6 +97,9 @@ const authLoginController = async (req, res) => {
         address: userFound.address,
         city: userFound.city
       }, secret);
+      // console.log(jwt);
+      // console.log(userFound.email);
+      // console.log(userFound.RoleIdRole.toLowerCase());
       res.status(200).json({
         message: "Login successful",
         jwt: jwt,

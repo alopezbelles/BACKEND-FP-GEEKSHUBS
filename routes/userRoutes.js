@@ -1,12 +1,18 @@
 const express = require('express')
 const router = express.Router();
+const jsonwebtoken = require("jsonwebtoken");
 
-//Importamos modelo de datos
-const UsersController = require("../controllers/usersControllers")
+
+
+//Importamos modelos de datos
+const UsersController = require("../controllers/usersControllers");
+const { authBearerMiddleware, isValidRole, isvali, isValidUser, isValidUserID } = require("../middlewares/authMiddleware")
+
 
 ///// C R U D   U S E R S  /////
 
-router.get("/", UsersController.getAllUsers);
+//Ver todos los usuarios (solo admin)
+router.get("/all", authBearerMiddleware, isValidRole("admin"), UsersController.getAllUsers);
 
 
 module.exports = router;

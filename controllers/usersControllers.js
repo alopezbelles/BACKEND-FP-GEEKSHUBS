@@ -1,5 +1,8 @@
 const UsersController = {};
 const models = require("../models/index");
+const jsonwebtoken = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+
 
 // const jsonwebtoken = require("jsonwebtoken");
 // const bcrypt = require('bcrypt');
@@ -18,5 +21,25 @@ UsersController.getAllUsers = async (req, res) => {
       res.send(err);
     }
   };
+
+// Get all deleted users
+// Get data from my own profile
+
+UsersController.getData = async (req, res) => {
+    let { email } = req.params;
+    let resp = await models.Users.findAll({
+      where: { email: email },
+    });
+    res.send(resp);
+  };
+
+
+// Update data from my own profile
+// Delete a user - ADMIN ONLY
+
+
+/////tengo que hacer controladores para que el admin vea los próximos viajes de los usuarios
+
+
 
   module.exports = UsersController;
