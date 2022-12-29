@@ -5,11 +5,9 @@ const { encryptPasswordService } = require("../Services/AuthServices");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-
-
 /////  C R U D    E N D - P O I N T S  F U N C T I O N S //////
 
-//OBTENEMOS LISTADO DE TODOS LOS USUARIOS -------------------------------------------------
+//OBTENEMOS LISTADO DE TODOS LOS USUARIOS (ADMIN) -------------------------------------------------
 
 UsersController.getAllUsers = async (req, res) => {
   try {
@@ -34,14 +32,13 @@ UsersController.getData = async (req, res) => {
 
 UsersController.upData = async (req, res) => {
   const user = req.body;
-  
+
   const userFound = await models.Users.findOne({
     where: {
       email: req.auth.email,
     },
-   
   });
-  console.log(req.auth.email);
+
   delete user.email;
   let newPassword = userFound.password;
   if (user.password) {
@@ -66,7 +63,24 @@ UsersController.upData = async (req, res) => {
   });
 };
 
-// Delete a user - ADMIN ONLY
+// ELIMINAR USUARIO (ADMIN)
+
+// UsersController.deleteUser = async (req, res) => {
+//   let { email } = req.params;
+//   let resp = await models.Users.delete({
+//     where: { email: email },
+//   });
+//   res.send(resp);
+// };
+
+UsersController.deleteUser = async (req, res) => {
+  const { email } = req.body;
+  let resp = await models.Users.destroy({ where: { email: email } });
+  res.json({
+    resp,
+    message: "Usuario eliminado",
+  });
+};
 
 /////tengo que hacer controladores para que el admin vea los próximos viajes de los usuarios
 
