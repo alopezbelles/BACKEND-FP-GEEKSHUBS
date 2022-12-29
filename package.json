@@ -4,7 +4,9 @@
   "description": "Final project Alejandro López GeeksHubs",
   "main": "/app/server.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "yarn run build && node dist/server.js",
+    "build": "rimraf ./dist && tsc", 
+    "dev": "nodemon ./src/server.ts"
   },
   "repository": {
     "type": "git",
