@@ -9,7 +9,7 @@ const {
   assertEmailIsUniqueService,
   createUserService,
   encryptPasswordService,
-} = require("../Services/AuthServices");
+} = require("../services/AuthServices");
 require("dotenv").config();
 
 

@@ -1,6 +1,6 @@
 const UsersController = {};
 const models = require("../models/index");
-const { encryptPasswordService } = require("../Services/AuthServices");
+const { encryptPasswordService } = require("../services/AuthServices");
 
 
 /////  C R U D    E N D - P O I N T S  F U N C T I O N S //////
