@@ -7,7 +7,7 @@ const router = express.Router()
 const SpotsRoutes = require("./routes/spotsRoutes");
 const AuthRoutes = require ("./routes/authRoutes");
 const UserRoutes = require("./routes/userRoutes");
-// const {authBearerMiddleware} = require("./middlewares/authMiddleware")
+const {authBearerMiddleware} = require("./middlewares/authMiddleware")
 
 
 
@@ -15,7 +15,7 @@ const UserRoutes = require("./routes/userRoutes");
 
 router.use('/spots', SpotsRoutes);
 router.use('/auth', AuthRoutes);
-// router.use(authBearerMiddleware);
+router.use(authBearerMiddleware);
 router.use('/users', UserRoutes);
 
 
