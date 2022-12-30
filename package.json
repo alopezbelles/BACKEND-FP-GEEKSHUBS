@@ -2,9 +2,11 @@
   "name": "backend-fp-geekshubs",
   "version": "1.0.0",
   "description": "Final project Alejandro López GeeksHubs",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
