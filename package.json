@@ -4,7 +4,7 @@
   "description": "Final project Alejandro López GeeksHubs",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
