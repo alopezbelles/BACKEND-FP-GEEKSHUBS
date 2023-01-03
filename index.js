@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3613;
 
 //CONFIGURACIÓN OPCIONES CORS
 var corsOptions = {
-    origin: "*",
+    origin: "http://localhost:3000",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204
