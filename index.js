@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3613;
 //CONFIGURACIÓN OPCIONES CORS
 //lo último añadido es control-acces-allow
 var corsOptions = {
-    origin: "*",
+    origin: "https://main.d2w3o8j2ftrauk.amplifyapp.com",
     control: "*",
     acces: "*",
     allow: "*",
