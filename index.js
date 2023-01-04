@@ -1,10 +1,10 @@
 const express = require("express");
+const cors = require("cors"); // Import cors module
 const app = express();
 const db = require('./db/db');
 const { sequelize } = require("./models/index");
 
 const router = require('./router') 
-const cors = require("cors"); // Import cors module
 
 
 
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3613;
 //CONFIGURACIÓN OPCIONES CORS
 //lo último añadido es control-acces-allow
 var corsOptions = {
-    origin: "https://main.d2w3o8j2ftrauk.amplifyapp.com",
+    origin: "*",
     control: "*",
     acces: "*",
     allow: "*",
@@ -24,9 +24,9 @@ var corsOptions = {
   };
 
 
+app.use(cors(corsOptions)); //Add CORS Middleware
 app.use(express.json());
 app.use(router);
-app.use(cors(corsOptions)); //Add CORS Middleware
 
 // app.get('/', (req, res) => {res.send('Pantalla de inicio');});
 
