@@ -60,33 +60,38 @@ const authRegisterController = async (req, res) => {
 
 const authLoginController = async (req, res) => {
   // res.send("hola")
+  console.log("1");
     const { email, password } = req.body;
     try {
+      console.log("2");
       // Buscamos el usuario por el email 
       const userFound = await models.Users.findOne({
         where: { email: email },
       });
+      console.log("3");
       if (!userFound) {
           return res.status(401).json({ message: "Password or email incorrect" });
       }
-  
+      console.log("4");
       if (userFound.deleted == true) {
         return res.status(401).json({ message: "Access forbidden" });
       }
       // Encriptamos la contraseña proporcionada y comprobamos que coincide con el hash de la base de datos 
+      console.log("5");
       const hashedPassword = encryptPasswordService(password);
-  
+      console.log("6");
       if (hashedPassword !== userFound.password) {
        return res.status(401).json({ message: "Password or email incorrect" });
   
       }
+      console.log("7");
       // Creamos el JSON Web Token y se lo damos al usuario 
       const secret = process.env.JWT_SECRET;
-  
+      console.log(secret);
       if (secret.length < 10) {
         throw new Error("JWT_SECRET is not set");
       }
-  
+      console.log("8");
       const jwt = jsonwebtoken.sign({
         email: userFound.email,
         id: userFound.id_user,
@@ -96,13 +101,14 @@ const authLoginController = async (req, res) => {
         address: userFound.address,
         city: userFound.city
       }, secret);
-      
+      console.log("9");
       return res.status(200).json({
         message: "Login successful",
         jwt: jwt,
       });
     } catch (error) {
-      return res.send(error);
+      console.log("10");
+      return res.status(500).json({error: error.message});
     }
   };
   
