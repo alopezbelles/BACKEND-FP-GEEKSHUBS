@@ -29,6 +29,7 @@ UsersController.getData = async (req, res) => {
 // ACTUALIZAR DATOS DE MI PERFIL (SOLO USUARIO)
 
 UsersController.upData = async (req, res) => {
+try {
   const user = req.body;
 
   const userFound = await models.Users.findOne({
@@ -36,7 +37,11 @@ UsersController.upData = async (req, res) => {
       email: req.auth.email,
     },
   });
-
+  
+  
+  if(!userFound){
+    return res.json({message: 'User not found'})
+  }
   delete user.email;
   let newPassword = userFound.password;
   if (user.password) {
@@ -59,6 +64,9 @@ UsersController.upData = async (req, res) => {
     resp,
     message: "Usuario actualizado",
   });
+} catch (error) {
+  res.json({ error: error.message });
+}
 };
 
 // ELIMINAR USUARIO (ADMIN)
