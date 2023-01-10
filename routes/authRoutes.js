@@ -8,7 +8,7 @@ const {
 
 ///// C R U D   A U T H   /////
 
-router.post("/login", authLoginController);
+// router.post("/login", authLoginController);
 router.post("/register" , authRegisterController);
 
 module.exports = router;
