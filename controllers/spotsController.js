@@ -80,8 +80,29 @@ SpotsController.spotsLifeguard = async (req, res) => {
   }
 };
 
+//CREAMOS UN NUEVO SPOT-------------------------------------------------------------------------
 
+SpotsController.newSpot = async (req, res) => {
+  try {
+    let spot = req.body;
+    let resp = await models.Spots.create({
 
+      spotname: spot.spotname,
+      city: spot.city,
+      adress: spot.adress,
+      type: spot.type,
+      conditions: spot.conditions,
+      lifeguard: spot.lifeguard,
+      length: spot.length,
+      rating: spot.rating,
+      imagepath: spot.imagepath,
+    });
+
+    res.send(resp);
+  } catch (err) {
+    res.send(err);
+  }
+};
 
 
 

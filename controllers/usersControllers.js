@@ -80,6 +80,5 @@ UsersController.deleteUser = async (req, res) => {
   });
 };
 
-/////tengo que hacer controladores para que el admin vea los próximos viajes de los usuarios
 
 module.exports = UsersController;

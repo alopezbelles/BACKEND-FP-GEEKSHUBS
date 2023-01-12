@@ -11,6 +11,7 @@ router.get("/id/:id", SpotsController.getbyId);
 router.get("/name/:name", SpotsController.getByName);
 router.get("/toprated", SpotsController.spotsTopRated);
 router.get("/lifeguard", SpotsController.spotsLifeguard);
+router.post("/newspot", SpotsController.newSpot);
 
 
 
