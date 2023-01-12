@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const { authBearerMiddleware, isValidRole } = require("../middlewares/authMiddleware")
 
 //Importamos modelo de datos
 const SpotsController = require("../controllers/spotsController")
@@ -11,7 +12,7 @@ router.get("/id/:id", SpotsController.getbyId);
 router.get("/name/:name", SpotsController.getByName);
 router.get("/toprated", SpotsController.spotsTopRated);
 router.get("/lifeguard", SpotsController.spotsLifeguard);
-router.post("/newspot", SpotsController.newSpot);
+router.post("/newspot", authBearerMiddleware, isValidRole("admin"), SpotsController.newSpot);
 
 
 
