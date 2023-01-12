@@ -6,7 +6,7 @@ const { Op } = require("sequelize");
 
 /////  C R U D    E N D - P O I N T S  F U N C T I O N S //////
 
-//OBTENEMOS LISTADO DE TODOS LOS SPOTS -------------------------------------------------
+//OBTENER LISTADO DE TODOS LOS SPOTS -------------------------------------------------
 
 SpotsController.getAll = async (req, res) => {
   try {
@@ -18,7 +18,7 @@ SpotsController.getAll = async (req, res) => {
   }
 };
 
-//OBTENEMOS SPOT POR ID -------------------------------------------------
+//OBTENER SPOT POR ID -------------------------------------------------
 
 SpotsController.getbyId = async (req, res) => {
   try {
@@ -33,7 +33,7 @@ SpotsController.getbyId = async (req, res) => {
   }
 };
 
-//OBTENEMOS SPOTS POR NOMBRE -----------------------------------------------------------
+//OBTENER SPOTS POR NOMBRE -----------------------------------------------------------
 
 SpotsController.getByName = async (req, res) => {
   try {
@@ -48,7 +48,7 @@ SpotsController.getByName = async (req, res) => {
   }
 };
 
-//OBTENEMOS SPOTS TOP RATED-------------------------------------------------------------------------
+//OBTENER SPOTS TOP RATED-------------------------------------------------------------------------
 
 SpotsController.spotsTopRated = async (req, res) => {
   try {
@@ -65,7 +65,7 @@ SpotsController.spotsTopRated = async (req, res) => {
   }
 };
 
-//OBTENEMOS SPOTS CON SOCORRISTA-------------------------------------------------------------------------
+//OBTENER SPOTS CON SOCORRISTA-------------------------------------------------------------------------
 
 SpotsController.spotsLifeguard = async (req, res) => {
   try {
@@ -80,7 +80,7 @@ SpotsController.spotsLifeguard = async (req, res) => {
   }
 };
 
-//CREAMOS UN NUEVO SPOT-------------------------------------------------------------------------
+//CREAR UN NUEVO SPOT-------------------------------------------------------------------------
 
 SpotsController.newSpot = async (req, res) => {
   try {
@@ -103,6 +103,27 @@ SpotsController.newSpot = async (req, res) => {
     res.send(err);
   }
 };
+
+//ELIMINAR UN SPOT-------------------------------------------------------------------------
+
+SpotsController.deleteSpot = async (req, res) => {
+
+try {
+  let id = req.params.id;
+  let resp = await models.Spots.destroy({
+    where: { id_spot: id }
+  })
+
+  if (resp == 1) {
+    res.send("Se ha eliminado el spot")
+  } else {
+    res.send("No se ha podido eliminar el spot")
+  }
+
+} catch (err) {
+  res.send(err)
+}
+}
 
 
 

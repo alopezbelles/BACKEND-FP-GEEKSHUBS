@@ -5,7 +5,7 @@ const { encryptPasswordService } = require("../services/AuthServices");
 
 /////  C R U D    E N D - P O I N T S  F U N C T I O N S //////
 
-//OBTENEMOS LISTADO DE TODOS LOS USUARIOS (ADMIN) -------------------------------------------------
+//OBTENER LISTADO DE TODOS LOS USUARIOS (ADMIN) -------------------------------------------------
 
 UsersController.getAllUsers = async (req, res) => {
   try {
@@ -16,7 +16,7 @@ UsersController.getAllUsers = async (req, res) => {
   }
 };
 
-// OBTENEMOS INFORMACIÓN DE USUARIO (SOLO USUARIO)
+// OBTENER INFORMACIÓN DE USUARIO (SOLO USUARIO)
 
 UsersController.getData = async (req, res) => {
   let { email } = req.params;

@@ -13,6 +13,7 @@ router.get("/name/:name", SpotsController.getByName);
 router.get("/toprated", SpotsController.spotsTopRated);
 router.get("/lifeguard", SpotsController.spotsLifeguard);
 router.post("/newspot", authBearerMiddleware, isValidRole("admin"), SpotsController.newSpot);
+router.delete("/deletespot/:id",  SpotsController.deleteSpot);
 
 
 
