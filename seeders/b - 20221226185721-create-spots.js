@@ -18,7 +18,7 @@ module.exports = {
           lifeguard: true,
           length: "6 km",
           rating: 4,
-          imagepath: "",
+          imagepath: "https://www.google.com/search?q=playa+de+famara&sxsrf=AJOqlzWEUHcU2uNSWv8BXk4wkl5b35EoMQ:1673624068578&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj6ieHA78T8AhUEU6QEHT5QDJEQ_AUoAnoECAEQBA&biw=1163&bih=525&dpr=1.65#imgrc=J2JRame02oXKOM",
         },
 
         {
@@ -33,7 +33,7 @@ module.exports = {
           lifeguard: true,
           length: "2 km",
           rating: 5,
-          imagepath: "",
+          imagepath: "https://atlantiksurf.com/wp-content/uploads/2012/07/playa-de-somo.jpg",
         },
         {
           id_spot: 3,
@@ -47,7 +47,7 @@ module.exports = {
           lifeguard: true,
           length: "1 km",
           rating: 4,
-          imagepath: "",
+          imagepath: "https://live.staticflickr.com/65535/49945150246_6b1991325f_b.jpg",
         },
         {
           id_spot: 4,
@@ -61,7 +61,7 @@ module.exports = {
           lifeguard: false,
           length: "2 km",
           rating: 5,
-          imagepath: "",
+          imagepath: "https://www.inspain.org/imgs3/playas/9/5/7/odso63beu3gtauyk2vzky2aatu_1000.jpg",
         },
       ],
       {}

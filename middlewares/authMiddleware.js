@@ -11,7 +11,6 @@ const authBearerMiddleware = async (req, res, next) => {
       throw new Error("Invalid strategy");
     }
 
-    //   const payload = jsonwebtoken.verify(jwt, "secretjsonwebtoken");
     const payload = jsonwebtoken.verify(jwt, process.env.JWT_SECRET);
 
     req.auth = payload;
@@ -27,7 +26,6 @@ const authBearerMiddleware = async (req, res, next) => {
 // Middleware para comprobar si el rol del usuario le da autorización para acceder al endpoint deseado.
 
 const isValidRole = (role) => (req, res, next) => {
-  //   console.log(req.auth)
   if (req.auth?.role === role) {
     next();
   } else {
@@ -38,7 +36,7 @@ const isValidRole = (role) => (req, res, next) => {
 // Middleware to assert if the user can access the desired endpoint
 const isValidUser = (email) => async (req, res, next) => {
   email = req.params.email || req.body.email;
-  console.log(email)
+  console.log(email);
   if (req.auth?.email === email) {
     next();
   } else {
