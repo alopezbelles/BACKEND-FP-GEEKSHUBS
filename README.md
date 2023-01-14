@@ -1,6 +1,8 @@
 # BACKEND-FP-GEEKSHUBS
 Backend Repository final project Bootcamp Full Stack Developer
 
+![image](https://user-images.githubusercontent.com/113507322/205169800-ae8aeff3-2afc-467c-8c53-6c1637671770.png)
+
 ### Datos generales
 
 **- Autor del proyecto:** Alejandro López Bellés
@@ -31,3 +33,29 @@ La base de datos consta de 4 tablas: SPOTS, USER-SPOTS, USERS, ROLES.
 - La tabla USERS tiene una relación de "1 TO MANY" (1:N) con la tabla USERS-SPOTS. 
 - La tabla ROLES tiene una relación de "1 TO MANY" (1:N) con la tabla USERS.
 Las relaciones entre las tablas deberían aparecer como en la imagen superior adjunta, siendo las tablas del lado "MANY" las que se traen una FK las PK de la tablas "1". 
+
+### Endpoints
+
+Para poder ejetutar los endpoints se ejecuta la raiz:
+## ** [backend-fp-geekshubs-production.up.railway.app](https://backend-fp-geekshubs-production.up.railway.app)
+
+A continuación de esta ruta, se añaden los endpoints con las peticiones GET, POST, PUT y DELETE en el postman o algún servicio similar. 
+
+SPOTS
+- GET /spots --> Mostrará el listado con todos los spots.
+- GET /spots/id/:id --> Mostrará un spot buscando por su Id.
+- GET /spots/name/:name --> Mostrará un spot buscando por su nombre.
+- GET /spots/toprated --> Mostrará los spots con mayor puntuación (una puntuación superior al 4 en una escala del 4 al 5).
+- GET /spots/lifeguard --> Mostrará los spots que tengan socorrista (true).
+- POST /spots/newspot --> Nos permitirá publicar un nuevo spot en la base de datos (necesita TOKEN y rol ADMIN).
+      - Se introduce por body: { "spotname": "spotname", "city": "city", "adress": adress, "type": "type(arena o roca)", "conditions": "conditions", "lifeguard": "lifeguard(true or false)", "lenght": "lenght", "rating": "rating (1to5)", "imagepath": "imagepagh(google route.jpg)".  
+- DELETE /spots/deletespot --> Eliminará un spot de la base de datos (necesita token de usuario).
+
+
+USER
+- GET /users/all --> Mostrará el listado con todos los usuarios.
+- GET /users/:email --> Mostrará un usuario buscado por su email.
+- PATCH /users/edit/:email --> Nos permitirá editar la información de un usuario (necesita token de usuario).
+      - Se introduce por body: { "name": "name", "username": "username", "city": city, "address": address, "password": password.
+- DELETE /users/delete --> Mostrará los spots con mayor puntuación (una puntuación superior al 4 en una escala del 4 al 5).
+
