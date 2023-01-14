@@ -18,7 +18,7 @@ module.exports = {
           lifeguard: true,
           length: "6 km",
           rating: 4,
-          imagepath: "https://www.google.com/search?q=playa+de+famara&sxsrf=AJOqlzWEUHcU2uNSWv8BXk4wkl5b35EoMQ:1673624068578&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj6ieHA78T8AhUEU6QEHT5QDJEQ_AUoAnoECAEQBA&biw=1163&bih=525&dpr=1.65#imgrc=J2JRame02oXKOM",
+          imagepath: "https://ociolanzarote.com/wp-content/imagenes/Playa-de-Famara-Lanzarote.jpg",
         },
 
         {
@@ -33,7 +33,7 @@ module.exports = {
           lifeguard: true,
           length: "2 km",
           rating: 5,
-          imagepath: "https://atlantiksurf.com/wp-content/uploads/2012/07/playa-de-somo.jpg",
+          imagepath: "https://photo620x400.mnstatic.com/8ec745c8cc862674c2af270bee7223d3/playa-de-somo.jpg",
         },
         {
           id_spot: 3,

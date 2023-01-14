@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { authBearerMiddleware, isValidRole } = require("../middlewares/authMiddleware")
+const { authBearerMiddleware, isValidRole, isValidUser } = require("../middlewares/authMiddleware")
 
 //Importamos modelo de datos
 const SpotsController = require("../controllers/spotsController")
@@ -13,7 +13,7 @@ router.get("/name/:name", SpotsController.getByName);
 router.get("/toprated", SpotsController.spotsTopRated);
 router.get("/lifeguard", SpotsController.spotsLifeguard);
 router.post("/newspot", authBearerMiddleware, isValidRole("admin"), SpotsController.newSpot);
-router.delete("/deletespot/:id",  SpotsController.deleteSpot);
+router.delete("/deletespot/:id", authBearerMiddleware, isValidUser(), SpotsController.deleteSpot);
 
 
 
