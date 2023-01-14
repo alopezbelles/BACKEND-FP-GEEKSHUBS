@@ -33,7 +33,7 @@ module.exports = {
           lifeguard: true,
           length: "2 km",
           rating: 5,
-          imagepath: "https://photo620x400.mnstatic.com/8ec745c8cc862674c2af270bee7223d3/playa-de-somo.jpg",
+          imagepath: "https://i.pinimg.com/originals/25/16/86/2516867c836ae0fccfce6aec34563d5e.jpg",
         },
         {
           id_spot: 3,
@@ -62,6 +62,34 @@ module.exports = {
           length: "2 km",
           rating: 5,
           imagepath: "https://www.inspain.org/imgs3/playas/9/5/7/odso63beu3gtauyk2vzky2aatu_1000.jpg",
+        },
+        {
+          id_spot: 5,
+          spotname: "Playa Pantín",
+          city: "A Coruña",
+          adress: "Pueblo de Valdoviño",
+          type: "arena",
+          conditions:
+            "La playa de Pantín es, probablemente, la playa más famosa de Galicia y una de las más conocidas a nivel nacional e incluso internacional. A principios de Otoño se celebra el Pantín Classic que lleva más de 25 años celebrándose el las playas de Ferrolterra. Este evento es un clásico del surf de competición en Europa y a pesar de no vivir sus mejores momentos sigue siendo una de las citas obligadas del surf en nuestra costa. Tiene diferentes picos pero un pico de derechas e izquierdas que sale en la parte derecha de la playa es el mítico point. Necesita poco mar para funcionar y se suele decir que si no hay olas en Pantín no hay olas en toda Galicia. Pantín funciona en principio en cualquier punto de marea y los vientos más favorables para sus rompientes son los de Suroeste, Sur, Sureste y Este.",
+
+          lifeguard: true,
+          length: "2 km",
+          rating: 5,
+          imagepath: "https://surfinglatino.com/wp-content/uploads/2016/09/Pantin-Classic-2016-3.jpg",
+        },
+        {
+          id_spot: 6,
+          spotname: "Playa Sopela",
+          city: "País Vasco",
+          adress: "Sopela, Bizkaia",
+          type: "arena",
+          conditions:
+            "La joya de la corona de Bizkaia, parte fundamental de la historia del surf del lugar, y cuna de grandes surfistas, y de una afición que crece cada día, y nos hace aunar en el esfuerzo de cuidar y proteger este entorno del que estamos infinitamente agradecidos. La playa conocida como Sopelana está compuesta por los arenales de Atxabiribil y Arrietara y se ubican en el muncipio vizcaíno de Sopela. Es una zona tranquila con bonitos paisajes y acantilados, los fondos de arena y roca ofrecen buenas condiciones para surfear. Las olas rompen en picos de izquierda y derecha que funcionan con todas las mareas, dependiendo de las condiciones pueden haber olas con pared y secciones huecas hasta de dos metros de tamaño. Es uno de los spots más populares de Euskadi y es muy frecuentada por los surfistas de la zona y Bilbao. Cuenta con parking, duchas, restaurantes y bares para tomar y comer algo después de una buena sesión de surf. En la zona también hay escuelas para recibir clases y alquilar material para surfear.",
+
+          lifeguard: false,
+          length: "2 km",
+          rating: 3,
+          imagepath: "https://www.hotelpaisvasco.com/wp-content/uploads/2019/02/1024px-Barinatxe.jpg",
         },
       ],
       {}
