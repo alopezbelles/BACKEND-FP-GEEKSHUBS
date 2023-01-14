@@ -48,14 +48,21 @@ SPOTS
 - GET /spots/toprated --> Mostrará los spots con mayor puntuación (una puntuación superior al 4 en una escala del 4 al 5).
 - GET /spots/lifeguard --> Mostrará los spots que tengan socorrista (true).
 - POST /spots/newspot --> Nos permitirá publicar un nuevo spot en la base de datos (necesita TOKEN y rol ADMIN).
-      - Se introduce por body: { "spotname": "spotname", "city": "city", "adress": adress, "type": "type(arena o roca)", "conditions": "conditions", "lifeguard": "lifeguard(true or false)", "lenght": "lenght", "rating": "rating (1to5)", "imagepath": "imagepagh(google route.jpg)".  
+      - Se introduce por body: { "spotname": "spotname", "city": "city", "adress": adress, "type": "type(arena o roca)", "conditions": "conditions", "lifeguard": "lifeguard(true or false)", "lenght": "lenght", "rating": "rating (1to5)", "imagepath": "imagepagh(google route.jpg)}".  
 - DELETE /spots/deletespot --> Eliminará un spot de la base de datos (necesita token de usuario).
 
 
 USER
-- GET /users/all --> Mostrará el listado con todos los usuarios.
-- GET /users/:email --> Mostrará un usuario buscado por su email.
+- GET /users/all --> Mostrará el listado con todos los usuarios(necesita token de Admin).
+- GET /users/:email --> Mostrará un usuario buscado por su email (necesita token de usuario).
 - PATCH /users/edit/:email --> Nos permitirá editar la información de un usuario (necesita token de usuario).
-      - Se introduce por body: { "name": "name", "username": "username", "city": city, "address": address, "password": password.
-- DELETE /users/delete --> Mostrará los spots con mayor puntuación (una puntuación superior al 4 en una escala del 4 al 5).
+      - Se introduce por body: { "name": "name", "username": "username", "city": city, "address": address, "password": password}.
+- DELETE /users/delete --> Eliminará un usuario de la base de datos (necesita token de Admin).
+      - Se introduce por body: { "email": "email"}.
+      
+ AUTH ROUTES
+ - POST /auth/register --> Nos permitirá añadir un nuevo usuario en la base de datos.
+ - POST /auth/login --> Nos permitirá hacer un login de un usuario ya registrado en base de datos.
+
+ 
 
