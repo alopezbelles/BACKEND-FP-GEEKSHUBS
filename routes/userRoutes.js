@@ -15,7 +15,7 @@ router.get("/all", authBearerMiddleware, isValidRole("admin"), UsersController.g
 //Ver mi información de perfil (solo cada usuario)
 router.get('/:email', authBearerMiddleware, isValidUser(), UsersController.getData);
 //Actualizar información de perfil (solo cada usuario)
-router.patch('/edit/:email', authBearerMiddleware, isValidUser(), UsersController.upData);
+router.patch('/edit', authBearerMiddleware, isValidUser(), UsersController.upData);
 //Eliminar usuario (solo admin)
 router.delete('/delete', authBearerMiddleware, isValidRole("admin"), UsersController.deleteUser);
 
