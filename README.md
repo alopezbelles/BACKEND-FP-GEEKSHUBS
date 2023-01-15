@@ -55,8 +55,8 @@ SPOTS
 USER
 - GET /users/all --> Mostrará el listado con todos los usuarios(necesita token de Admin).
 - GET /users/:email --> Mostrará un usuario buscado por su email (necesita token de usuario).
-- PATCH /users/edit/:email --> Nos permitirá editar la información de un usuario (necesita token de usuario).
-      - Se introduce por body: { "name": "name", "username": "username", "city": city, "address": address, "password": password}.
+- PATCH /users/edit --> Nos permitirá editar la información de un usuario (necesita token de usuario).
+      - Se introduce por body: { "email": email, "password": password}.
 - DELETE /users/delete --> Eliminará un usuario de la base de datos (necesita token de Admin).
       - Se introduce por body: { "email": "email"}.
       
