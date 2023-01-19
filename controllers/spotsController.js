@@ -52,14 +52,12 @@ SpotsController.getByName = async (req, res) => {
 
 SpotsController.spotsTopRated = async (req, res) => {
   try {
-    // const id = req.params.id;
+    
     let resp = await models.Spots.findAll({
-      
-      where: {rating: {[Op.gt]: 4}},
-      })
-      .then((resp) => {
-        res.send(resp);
-      });
+      where: { rating: { [Op.gt]: 4 } },
+    }).then((resp) => {
+      res.send(resp);
+    });
   } catch (err) {
     res.send(err);
   }
@@ -86,7 +84,6 @@ SpotsController.newSpot = async (req, res) => {
   try {
     let spot = req.body;
     let resp = await models.Spots.create({
-
       spotname: spot.spotname,
       city: spot.city,
       adress: spot.adress,
@@ -107,26 +104,36 @@ SpotsController.newSpot = async (req, res) => {
 //ELIMINAR UN SPOT-------------------------------------------------------------------------
 
 SpotsController.deleteSpot = async (req, res) => {
+  try {
+    let id = req.params.id;
+    let resp = await models.Spots.destroy({
+      where: { id_spot: id },
+    });
 
-try {
-  let id = req.params.id;
-  let resp = await models.Spots.destroy({
-    where: { id_spot: id }
-  })
-
-  if (resp == 1) {
-    res.send("Se ha eliminado el spot")
-  } else {
-    res.send("No se ha podido eliminar el spot")
+    if (resp == 1) {
+      res.send("Se ha eliminado el spot");
+    } else {
+      res.send("No se ha podido eliminar el spot");
+    }
+  } catch (err) {
+    res.send(err);
   }
-
-} catch (err) {
-  res.send(err)
-}
-}
-
+};
 
 //GUARDAR UN SPOT POR UN USUARIO
 
+SpotsController.saveSpotByUser = async (req, res) => {
+  try {
+    let data = req.body;
+    // let user = req.params.id;
+    let resp = await models.Userspots.create({
+      SpotIdSpot: data.SpotidSpot,
+      UserIdUser: data.UseridUser,
+    });
+    res.send(resp);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = SpotsController;
