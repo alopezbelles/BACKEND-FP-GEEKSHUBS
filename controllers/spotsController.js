@@ -126,5 +126,7 @@ try {
 }
 
 
+//GUARDAR UN SPOT POR UN USUARIO
+
 
 module.exports = SpotsController;
