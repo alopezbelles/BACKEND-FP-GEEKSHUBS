@@ -16,8 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Userspot.init({
     id_userspot: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true
     },
     SpotIdSpot: {

@@ -75,7 +75,7 @@ module.exports = {
           lifeguard: true,
           length: "2 km",
           rating: 5,
-          imagepath: "https://surfinglatino.com/wp-content/uploads/2016/09/Pantin-Classic-2016-3.jpg",
+          imagepath: "https://www.inspain.org/imgs3/playas/3/4/1/genxugbeg5dhxao5k7qfdyk2ua_2000.jpg",
         },
         {
           id_spot: 6,

@@ -125,11 +125,14 @@ SpotsController.deleteSpot = async (req, res) => {
 SpotsController.saveSpotByUser = async (req, res) => {
   try {
     let data = req.body;
-    // let user = req.params.id;
-    let resp = await models.Userspots.create({
-      SpotIdSpot: data.SpotidSpot,
-      UserIdUser: data.UseridUser,
+    
+    let resp = await models.Userspot.create({
+      SpotIdSpot: data.SpotIdSpot,
+      UserIdUser: data.UserIdUser,
+      
     });
+    // await models.Userspot.getAll({})
+    
     res.send(resp);
   } catch (error) {
     return res.status(500).json({ error: error.message });
