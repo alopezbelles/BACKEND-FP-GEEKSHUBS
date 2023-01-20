@@ -139,15 +139,19 @@ SpotsController.saveSpotByUser = async (req, res) => {
 };
 
 //RECUPERAR SPOT GUARDADO POR USUARIO
-//findall donde la id del usuario sea la id del usuario
 
 SpotsController.mySpots = async (req, res) => {
   try {
     let id = req.params.id
     let resp = await models.Userspot.findAll({
       where: { UserIdUser: id },
+      include:{
+        model: models.Spots,
+        
+      }
       
     });
+    
     
     res.send(resp);
   } catch (error) {
