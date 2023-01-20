@@ -131,12 +131,31 @@ SpotsController.saveSpotByUser = async (req, res) => {
       UserIdUser: data.UserIdUser,
       
     });
-    // await models.Userspot.getAll({})
     
     res.send(resp);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
+
+//RECUPERAR SPOT GUARDADO POR USUARIO
+//findall donde la id del usuario sea la id del usuario
+
+SpotsController.mySpots = async (req, res) => {
+  try {
+    let id = req.params.id
+    let resp = await models.Userspot.findAll({
+      where: { UserIdUser: id },
+      
+    });
+    
+    res.send(resp);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+
+
 
 module.exports = SpotsController;
