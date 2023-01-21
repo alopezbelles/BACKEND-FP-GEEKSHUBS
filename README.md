@@ -49,7 +49,10 @@ SPOTS
 - GET /spots/lifeguard --> Mostrará los spots que tengan socorrista (true).
 - POST /spots/newspot --> Nos permitirá publicar un nuevo spot en la base de datos (necesita TOKEN y rol ADMIN).
       - Se introduce por body: { "spotname": "spotname", "city": "city", "adress": adress, "type": "type(arena o roca)", "conditions": "conditions", "lifeguard": "lifeguard(true or false)", "lenght": "lenght", "rating": "rating (1to5)", "imagepath": "imagepagh(google route.jpg)}".  
-- DELETE /spots/deletespot --> Eliminará un spot de la base de datos (necesita token de usuario).
+- DELETE /spots/deletespot/:id --> Eliminará un spot de la base de datos (necesita token de usuario).
+- POST /savespot --> Creará un nuevo registro en la tabla Userspots, con la id del usuario y la id del spot guardado. 
+- GET /myspots/:id --> Nos mostrará todos los spots guardados por el usuario (la id es la de usuario). 
+- DELETE /deletemyspot/:id --> Nos permitirá eliminar un spot guardado por el usuario.
 
 
 USER
