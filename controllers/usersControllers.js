@@ -27,6 +27,7 @@ UsersController.getData = async (req, res) => {
 };
 
 // ACTUALIZAR DATOS DE MI PERFIL (SOLO USUARIO)
+//añado la constante password
 
 UsersController.upData = async (req, res) => {
 try {
@@ -39,9 +40,9 @@ try {
   });
   
   
-  if(!userFound){
-    return res.json({message: 'User not found'})
-  }
+  // if(!userFound){
+  //   return res.json({message: 'User not found'})
+  // }
   delete user.email;
   let newPassword = userFound.password;
   if (user.password) {
