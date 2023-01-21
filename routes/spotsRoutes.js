@@ -16,6 +16,7 @@ router.post("/newspot", authBearerMiddleware, isValidRole("admin"), SpotsControl
 router.delete("/deletespot/:id", authBearerMiddleware, isValidUser(), SpotsController.deleteSpot);
 router.post("/savespot", authBearerMiddleware, SpotsController.saveSpotByUser);
 router.get("/myspots/:id", authBearerMiddleware,  SpotsController.mySpots);
+router.delete("/deletemyspot/:id", authBearerMiddleware,  SpotsController.deleteMySpot);
 
 
 

@@ -52,7 +52,6 @@ SpotsController.getByName = async (req, res) => {
 
 SpotsController.spotsTopRated = async (req, res) => {
   try {
-    
     let resp = await models.Spots.findAll({
       where: { rating: { [Op.gt]: 4 } },
     }).then((resp) => {
@@ -101,7 +100,7 @@ SpotsController.newSpot = async (req, res) => {
   }
 };
 
-//ELIMINAR UN SPOT-------------------------------------------------------------------------
+//ELIMINAR UN SPOT DE LA BASE DE DATOS------------------------------------------------------------------
 
 SpotsController.deleteSpot = async (req, res) => {
   try {
@@ -120,44 +119,60 @@ SpotsController.deleteSpot = async (req, res) => {
   }
 };
 
-//GUARDAR UN SPOT POR UN USUARIO
+//GUARDAR UN SPOT POR UN USUARIO---------------------------------------------
 
 SpotsController.saveSpotByUser = async (req, res) => {
   try {
     let data = req.body;
-    
+
     let resp = await models.Userspot.create({
       SpotIdSpot: data.SpotIdSpot,
       UserIdUser: data.UserIdUser,
-      
     });
-    
+
     res.send(resp);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
-//RECUPERAR SPOT GUARDADO POR USUARIO
+//RECUPERAR SPOTS GUARDADO POR USUARIO---------------------------------------------
 
 SpotsController.mySpots = async (req, res) => {
   try {
-    let id = req.params.id
+    let id = req.params.id;
     let resp = await models.Userspot.findAll({
       where: { UserIdUser: id },
-      include:{
+      include: {
         model: models.Spots,
-        
-      }
-      
+      },
     });
-    
-    
+
     res.send(resp);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
+
+//ELIMINAR UN SPOT DE MIS SPOTS GUARDADOS ---------------------------------------------
+
+SpotsController.deleteMySpot = async (req, res) => {
+  try {
+    let id = req.params.id;
+    let resp = await models.Userspot.destroy({
+      where: { SpotIdSpot: id },
+    });
+
+    if (resp == 1) {
+      res.send("Se ha eliminado el spot");
+    } else {
+      res.send("No se ha podido eliminar el spot");
+    }
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 
 
 
