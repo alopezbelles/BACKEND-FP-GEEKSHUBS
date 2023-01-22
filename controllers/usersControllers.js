@@ -44,25 +44,23 @@ try {
   //   return res.json({message: 'User not found'})
   // }
   // delete user.email;
-  console.log("aqui antes de encriptar contraseña")
 
-  let newPassword = userFound.password;
-  if (user.password) {
-    newPassword = encryptPasswordService(user.password);
-  }
-  console.log("aqui después de encriptar contraseña")
+  // let newPassword = userFound.password;
+  // if (user.password) {
+  //   newPassword = encryptPasswordService(user.password);
+  // }
   let resp = await models.Users.update(
     {
-      name: user.name,
+      // name: user.name,
       username: user.username,
-      city: user.city,
-      address: user.address,
-      password: newPassword,
+      // city: user.city,
+      email: user.email,
+      // password: newPassword,
     },
     {
       where: { email: req.auth.email },
     }
-  );
+    );
   res.json({
     resp,
     message: "Usuario actualizado",
