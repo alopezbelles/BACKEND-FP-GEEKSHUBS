@@ -43,12 +43,14 @@ try {
   // if(!userFound){
   //   return res.json({message: 'User not found'})
   // }
-  delete user.email;
+  // delete user.email;
+  console.log("aqui antes de encriptar contraseña")
+
   let newPassword = userFound.password;
   if (user.password) {
     newPassword = encryptPasswordService(user.password);
   }
-
+  console.log("aqui después de encriptar contraseña")
   let resp = await models.Users.update(
     {
       name: user.name,
