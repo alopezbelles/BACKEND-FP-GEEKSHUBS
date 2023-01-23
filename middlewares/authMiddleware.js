@@ -14,6 +14,7 @@ const authBearerMiddleware = async (req, res, next) => {
     const payload = jsonwebtoken.verify(jwt, process.env.JWT_SECRET);
 
     req.auth = payload;
+    console.log(req.auth)
     next();
   } catch (error) {
     res
