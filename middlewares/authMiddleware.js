@@ -14,7 +14,6 @@ const authBearerMiddleware = async (req, res, next) => {
     const payload = jsonwebtoken.verify(jwt, process.env.JWT_SECRET);
 
     req.auth = payload;
-    // console.log(req.auth)
     next();
   } catch (error) {
     res
@@ -37,7 +36,6 @@ const isValidRole = (role) => (req, res, next) => {
 // Middleware to assert if the user can access the desired endpoint
 const isValidUser = (email) => async (req, res, next) => {
   email = req.params.email || req.body.email;
-  // console.log(email);
   if (req.auth?.email === email) {
     next();
   } else {

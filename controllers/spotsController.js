@@ -157,26 +157,16 @@ SpotsController.mySpots = async (req, res) => {
 //ELIMINAR UN SPOT DE MIS SPOTS GUARDADOS ---------------------------------------------
 
 SpotsController.deleteMySpot = async (req, res) => {
-  // try {
-    let id = req.params.id;
-    let resp = await models.Userspot.destroy({
-      where: { id_userspot: id },
-    });
+  let id = req.params.id;
+  let resp = await models.Userspot.destroy({
+    where: { id_userspot: id },
+  });
 
-    if (resp == 1) {
-      res.send("Se ha eliminado el spot");
-    } 
-    else {
-      res.send("No se ha podido eliminar el spot");
-    }
-  // } 
-  // catch (err) {
-  //   res.send(err);
-  // }
+  if (resp == 1) {
+    res.send("Se ha eliminado el spot");
+  } else {
+    res.send("No se ha podido eliminar el spot");
+  }
 };
-
-
-
-
 
 module.exports = SpotsController;
