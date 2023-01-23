@@ -5,7 +5,7 @@ const jsonwebtoken = require("jsonwebtoken");
 
 //Importamos modelos de datos
 const UsersController = require("../controllers/usersControllers");
-const { authBearerMiddleware, isValidRole, isValidUser } = require("../middlewares/authMiddleware")
+const { authBearerMiddleware, isValidRole } = require("../middlewares/authMiddleware")
 
 
 ///// C R U D   U S E R S  /////
