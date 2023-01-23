@@ -13,7 +13,7 @@ const { authBearerMiddleware, isValidRole, isValidUser } = require("../middlewar
 //Ver todos los usuarios (solo admin)
 router.get("/all", authBearerMiddleware, isValidRole("admin"), UsersController.getAllUsers);
 //Ver mi información de perfil (solo cada usuario)
-router.get('/', authBearerMiddleware, isValidUser(), UsersController.getData);
+router.get('/', authBearerMiddleware, UsersController.getData);
 //Actualizar información de perfil 
 router.patch('/edit', UsersController.upData);
 //Eliminar usuario (solo admin)
