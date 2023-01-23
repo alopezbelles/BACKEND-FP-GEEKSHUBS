@@ -19,11 +19,13 @@ UsersController.getAllUsers = async (req, res) => {
 // OBTENER INFORMACIÓN DE USUARIO (SOLO USUARIO)
 
 UsersController.getData = async (req, res) => {
+  let user = req.auth;
   let { email } = req.params;
-  let resp = await models.Users.findAll({
-    where: { email: email },
-  });
-  res.send(resp);
+  // console.log(user)
+  // let resp = await models.Users.findAll({
+  //   where: { email: email },
+  // });
+  res.send(user);
 };
 
 // ACTUALIZAR DATOS DE MI PERFIL (SOLO USUARIO)
